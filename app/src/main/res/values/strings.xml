@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="error_message_network_not_available">Internet not available</string>
+    <string name="error_message_network_time_out">Request timed out</string>
+    <string name="label_currency_conversion">Currency Conversion</string>
+    <string name="error_message_erro_occurred">An unexpected error has occurred</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
