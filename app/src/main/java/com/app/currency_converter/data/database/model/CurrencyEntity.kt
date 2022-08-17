@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.app.currency_converter.domain.model.Currency
 import com.app.currency_converter.util.Utils
 import com.app.currency_converter.util.Utils.EMPTY
 import com.app.currency_converter.util.Utils.roundToFourDecimalPlaces
@@ -20,7 +21,6 @@ data class CurrencyEntity(
     @ColumnInfo(name = "column_exchangeRate")
     val exchangeRate: Double
 ) {
-
     @ColumnInfo(name = "column_order")
     var order = Utils.Order.INVALID.position
 
@@ -157,3 +157,8 @@ data class CurrencyEntity(
         const val CURRENCY_CODE_START_INDEX = 4
     }
 }
+
+internal fun CurrencyEntity.toDomainModel() = Currency(
+    currencyCode = currencyCode,
+    exchangeRate = exchangeRate
+)

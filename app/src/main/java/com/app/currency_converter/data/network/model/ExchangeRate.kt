@@ -1,20 +1,19 @@
-package com.app.currency_converter.data.network.response
+package com.app.currency_converter.data.network.model
 
-import com.app.currency_converter.data.network.model.ExchangeRate
+import com.app.currency_converter.data.database.model.CurrencyEntity
+import com.app.currency_converter.domain.model.Currency
+import com.google.gson.annotations.SerializedName
 
-internal data class ExchangeRateResponse(
-//    @SerializedName("base")
-//    val base: String?,
-//    @SerializedName("rates")
-//    val exchangeRates:ExchangeRates?,
-//    @SerializedName("timestamp")
-//    val timestamp: Int?
+internal data class ExchangeRate(
+    @SerializedName("base")
+    val base: String?,
+    @SerializedName("rates")
+    val exchangeRates: Map<String,Double>,
+    @SerializedName("timestamp")
+    val timestamp: Long?
 
-    val exchangeRate:ExchangeRate?,
-)
 
-/*class ExchangeRates(
-    @SerializedName("AED")
+   /* @SerializedName("AED")
     var USD_AED: Double = 0.0,
 
     @SerializedName("AFN")
@@ -498,5 +497,27 @@ internal data class ExchangeRateResponse(
     var USD_ZMW: Double = 0.0,
 
     @SerializedName("ZWL")
-    var USD_ZWL: Double = 0.0,
-)*/
+    var USD_ZWL: Double = 0.0*/
+)
+
+internal fun ExchangeRate.toEntityList(): List<CurrencyEntity> {
+    val currencies = mutableListOf<CurrencyEntity>()
+    for (property in exchangeRates) {
+        val currencyCode = property.key
+        val exchangeRate = property.value
+        currencies.add(CurrencyEntity(currencyCode, exchangeRate))
+    }
+    return currencies
+}
+
+internal fun ExchangeRate.toDomainModelList(): List<Currency> {
+    val currencies = mutableListOf<Currency>()
+    for (property in exchangeRates) {
+        val currencyCode = property.key
+        val exchangeRate = property.value
+        currencies.add(Currency(currencyCode, exchangeRate))
+    }
+    return currencies
+}
+
+

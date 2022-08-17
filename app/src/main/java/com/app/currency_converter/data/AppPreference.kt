@@ -20,10 +20,10 @@ class AppPreference(context: Context) {
     val isDataEmpty
         get() = timeSinceLastUpdateInMillis == NO_DATA
 
-    val isDataStale
+    val shouldRefreshData
         get() = timeSinceLastUpdateInMillis > THIRTY_MINUTES_IN_MILLIS
 
-    private val timeSinceLastUpdateInMillis: Long
+     val timeSinceLastUpdateInMillis: Long
         get() {
             return if (timestampInSeconds != NO_DATA) {
                 System.currentTimeMillis() - timestampInSeconds.toMillis()

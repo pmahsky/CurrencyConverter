@@ -1,17 +1,25 @@
 package com.app.currency_converter.domain.usecase
 
+import com.app.currency_converter.domain.model.Currency
 import com.app.currency_converter.domain.repository.ExchangeRateRepository
+import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 
-class GetExchangeRatesUsecase @Inject constructor(
+internal class GetExchangeRatesUsecase @Inject constructor(
     private val exchangeRateRepository: ExchangeRateRepository
 ) {
-    suspend fun execute(): com.app.currency_converter.domain.model.Result {
+    suspend fun execute(): Result {
         return try {
-            exchangeRateRepository.fetchCurrencies()
+            Timber.i("Calling fetchExchangeRates() in repository to get data  ***")
+            Result.Success(exchangeRateRepository.fetchExchangeRates())
         } catch (e: IOException) {
-            com.app.currency_converter.domain.model.Result.Error(e.message)
+            Timber.i("Returning Error Result ***")
+            Result.Error(e)
         }
+    }
+    sealed interface Result {
+        data class Success(val data: List<Currency>) : Result
+        data class Error(val e: Throwable) : Result
     }
 }

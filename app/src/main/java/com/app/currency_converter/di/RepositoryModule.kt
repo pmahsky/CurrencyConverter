@@ -16,14 +16,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
-
     @Singleton
     @Provides
-    fun provideRepository(
-        @ApplicationContext context: Context,
+    internal fun provideRepository(
         apiService: ApiService,
         currencyDao: CurrencyDao,
         appPreference: AppPreference): ExchangeRateRepository {
-        return ExchangeRateRepositoryImpl(context, apiService, currencyDao, appPreference)
+        return ExchangeRateRepositoryImpl(apiService, currencyDao, appPreference)
     }
 }
