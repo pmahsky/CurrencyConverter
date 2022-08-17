@@ -16,7 +16,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:maxLines="1"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"/>
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/currencySpinner"

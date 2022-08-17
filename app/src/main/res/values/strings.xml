@@ -4,5 +4,6 @@
     <string name="error_message_network_time_out">Request timed out</string>
     <string name="label_currency_conversion">Currency Conversion</string>
     <string name="error_message_error_occurred">An unexpected error has occurred</string>
+    <string name="error_message_invalid_amount">Please enter a valid amount</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

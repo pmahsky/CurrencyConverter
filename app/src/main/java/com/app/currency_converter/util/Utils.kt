@@ -1,7 +1,9 @@
 package com.app.currency_converter.util
 
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
+import android.view.inputmethod.InputMethodManager
 import com.app.currency_converter.data.database.model.CurrencyEntity
 import java.math.BigDecimal
 import java.math.RoundingMode
@@ -14,6 +16,11 @@ object Utils {
         SECOND(1),
         THIRD(2),
         FOURTH(3)
+    }
+
+    fun Activity.hideKeyboard() {
+        val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 
     fun Context.isNetworkAvailable(): Boolean {

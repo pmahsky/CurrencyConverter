@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1365623948873192" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25611877441406256" />
         <entry key="app/src/main/res/layout/fragment_currency_conversion.xml" value="0.31567028985507245" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.31567028985507245" />
+        <entry key="app/src/main/res/layout/item_converted_currency_list.xml" value="0.31567028985507245" />
       </map>
     </option>
   </component>
