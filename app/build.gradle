@@ -67,6 +67,7 @@ ext {
     mockk_version = '1.+'
     androidx_core_testing_version = '2.+'
     junit5_version = '5.8.2'
+    truth_version = '1.1'
 }
 
 dependencies {
@@ -107,9 +108,6 @@ dependencies {
     // For Coroutines Testing
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 
-    // Library For Fluent assertions specifically for kotlin and a wrapper around the Junit
-    testImplementation "org.amshove.kluent:kluent-android:$kluent_version"
-
     // Mocking library for Kotlin
     testImplementation "io.mockk:mockk:$mockk_version"
 
@@ -117,11 +115,10 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$androidx_core_testing_version"
 
     // Its the API for writing testes using JUnit version 5. It provides extension models for developing tests and extensions
-//    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit5_version"
-//    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5_version"
-//    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit5_version"
-
     testImplementation "org.junit.jupiter:junit-jupiter:$junit5_version"
+
+    // Truth is a fluent and flexible open-source testing framework designed to make test assertions and failure messages more readable
+    testImplementation "com.google.truth:truth:$truth_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"

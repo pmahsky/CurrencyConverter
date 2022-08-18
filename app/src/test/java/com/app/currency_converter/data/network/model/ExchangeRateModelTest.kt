@@ -2,8 +2,8 @@ package com.app.currency_converter.data.network.model
 
 import com.app.currency_converter.data.DataModels
 import com.app.currency_converter.domain.model.Currency
-import org.amshove.kluent.shouldBeEqualTo
-import org.junit.Test
+import com.google.common.truth.Truth.assertThat
+import org.junit.jupiter.api.Test
 
 class ExchangeRateModelTest {
 
@@ -16,7 +16,7 @@ class ExchangeRateModelTest {
         val domainModelList = exchangeRateModel.toDomainModelList()
 
         //then
-        domainModelList shouldBeEqualTo listOf(Currency("USD", 1.0))
+        assertThat(domainModelList).isEqualTo(listOf(Currency("USD", 1.0)))
     }
 
     @Test
@@ -28,6 +28,6 @@ class ExchangeRateModelTest {
         val domainModelList = exchangeRateModel.toDomainModelList()
 
         //then
-        domainModelList shouldBeEqualTo emptyList()
+        assertThat(domainModelList).isEqualTo(emptyList<Currency>())
     }
 }

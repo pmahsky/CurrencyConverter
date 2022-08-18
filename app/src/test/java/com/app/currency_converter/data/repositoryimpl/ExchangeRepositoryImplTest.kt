@@ -8,12 +8,12 @@ import com.app.currency_converter.data.database.model.CurrencyEntity
 import com.app.currency_converter.data.network.model.toDomainModelList
 import com.app.currency_converter.data.network.service.ApiService
 import com.app.currency_converter.data.repositoryImpl.ExchangeRateRepositoryImpl
+import com.google.common.truth.Truth
+import com.google.common.truth.Truth.assertThat
 import io.mockk.*
 import kotlinx.coroutines.runBlocking
-import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 class ExchangeRepositoryImplTest {
@@ -41,15 +41,11 @@ class ExchangeRepositoryImplTest {
             mockService.getLatestExchangeRates(any())
         } returns DataModels.getExchangeRateModel()
 
-//        coEvery {
-//            currencyDao.upsertCurrencies(any())
-//        } returns Unit
-
         //when
         val result = runBlocking { repositoryImpl.fetchExchangeRates() }
 
         //then
-        result shouldBeEqualTo DataModels.getExchangeRateModel().toDomainModelList()
+        assertThat(result).isEqualTo(DataModels.getExchangeRateModel().toDomainModelList())
     }
 
     @Test
@@ -65,7 +61,7 @@ class ExchangeRepositoryImplTest {
         val result = runBlocking { repositoryImpl.fetchExchangeRates() }
 
         //then
-        result shouldBeEqualTo null
+        assertThat(result).isEqualTo(null)
     }
 
     @Test
@@ -85,7 +81,7 @@ class ExchangeRepositoryImplTest {
         val result = runBlocking { repositoryImpl.fetchExchangeRates() }
 
         //then
-        result shouldBeEqualTo DataModels.getExchangeRateModel().toDomainModelList()
+        assertThat(result).isEqualTo(DataModels.getExchangeRateModel().toDomainModelList())
     }
 
     @Test
@@ -102,7 +98,7 @@ class ExchangeRepositoryImplTest {
         val result = runBlocking { repositoryImpl.fetchExchangeRates() }
 
         //then
-        result shouldBeEqualTo DataModels.getExchangeRateModel().toDomainModelList()
+        assertThat(result).isEqualTo(DataModels.getExchangeRateModel().toDomainModelList())
     }
 
     @Test
@@ -123,7 +119,7 @@ class ExchangeRepositoryImplTest {
         val result = runBlocking { repositoryImpl.fetchExchangeRates() }
 
         //then
-        result shouldBeEqualTo DataModels.getExchangeRateModel().toDomainModelList()
+        assertThat(result).isEqualTo(DataModels.getExchangeRateModel().toDomainModelList())
     }
 
     @Test
@@ -144,7 +140,7 @@ class ExchangeRepositoryImplTest {
         val result = runBlocking { repositoryImpl.fetchExchangeRates() }
 
         //then
-        result shouldBeEqualTo DataModels.getExchangeRateModel().toDomainModelList()
+        assertThat(result).isEqualTo(DataModels.getExchangeRateModel().toDomainModelList())
     }
 
 }
