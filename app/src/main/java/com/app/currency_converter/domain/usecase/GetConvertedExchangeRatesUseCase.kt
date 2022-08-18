@@ -33,7 +33,7 @@ internal class GetConvertedExchangeRatesUseCase @Inject constructor(
     ): List<Currency> {
         val convertedCurrencyList = arrayListOf<Currency>()
         val allCurrenciesList = currencyDao.getAllCurrencies()
-        allCurrenciesList.forEach {
+        allCurrenciesList?.forEach {
             val fromRate = currency.exchangeRate
             val toRate = it.exchangeRate
 

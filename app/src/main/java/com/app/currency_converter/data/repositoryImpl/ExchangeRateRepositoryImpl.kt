@@ -26,8 +26,6 @@ internal class ExchangeRateRepositoryImpl @Inject constructor(
 
     override suspend fun getAllCurrencies() = currencyDao.getAllCurrencies()
 
-    override suspend fun getSelectedCurrencies() = currencyDao.getSelectedCurrencies()
-
     override suspend fun upsertCurrency(currency: CurrencyEntity) {
         CoroutineScope(Dispatchers.IO).launch {
             currencyDao.upsertCurrency(currency)
@@ -40,12 +38,9 @@ internal class ExchangeRateRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getCurrency(currencyCode: String) = currencyDao.getCurrency(currencyCode)
-
-    override suspend fun fetchExchangeRates(): List<Currency> {
+    override suspend fun fetchExchangeRates(): List<Currency>? {
         return try {
             Timber.i("start of data fetch ***")
-//            Timber.i("timeSinceLastUpdateInMillis: ${appPreference.timeSinceLastUpdateInMillis}")
             if ((appPreference.isDataEmpty || appPreference.shouldRefreshData)) {
                 Timber.i("appPreference.isDataEmpty: ${appPreference.isDataEmpty} || appPreference.shouldRefreshData: ${appPreference.shouldRefreshData} IF***")
                 Timber.i("Getting fresh data from Api ***")
@@ -57,18 +52,17 @@ internal class ExchangeRateRepositoryImpl @Inject constructor(
                     addUpdateCurrenciesInLocalDatabase(currencyEntityList = currencyEntityList)
                     appPreference.timestampInSeconds = exchangeRatesResponse.timestamp ?: 0
                     it.toDomainModelList()
-                } ?: mutableListOf()
-
+                }
             } else {
-                Timber.i("appPreference.isDataEmpty: ${appPreference.isDataEmpty} || appPreference.shouldRefreshData: ${appPreference.shouldRefreshData} ELSE***")
+                Timber.i("appPreference.isDataEmpty: ${appPreference.isDataEmpty} || appPreference.shouldRefreshData: ${appPreference.shouldRefreshData} ELSE IF***")
                 Timber.i("Returning data from DB ***")
                 currencyDao.getAllCurrencies()
-                    .map { it.toDomainModel() }
+                    ?.map { it.toDomainModel() }
             }
         } catch (e: UnknownHostException) {
             Timber.i("Exception occurred, returning data from DB if available ${e.printStackTrace()} ***")
             currencyDao.getAllCurrencies()
-                .map { it.toDomainModel() }
+                ?.map { it.toDomainModel() }
         }
     }
 

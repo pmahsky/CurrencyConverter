@@ -26,8 +26,5 @@ interface CurrencyDao {
     suspend fun getCurrency(currencyCode: String): CurrencyEntity
 
     @Query("SELECT * FROM currency_table ORDER BY column_currencyCode ASC")
-    suspend fun getAllCurrencies(): List<CurrencyEntity>
-
-    @Query("SELECT * FROM currency_table WHERE column_isSelected = 1 ORDER BY column_order ASC")
-    suspend fun getSelectedCurrencies(): List<CurrencyEntity>
+    suspend fun getAllCurrencies(): List<CurrencyEntity>?
 }
