@@ -51,7 +51,7 @@ internal class MainViewModel @Inject constructor(
         currency: Currency,
         enteredAmountTobeConverted: String
     ) {
-        Timber.i("Starting to convert currency for Currency: ${currency.currencyCode} with rate: ${currency.exchangeRate} for amount: ${enteredAmountTobeConverted} ***")
+        Timber.i("Starting to convert currency for Currency: ${currency.currencyCode} with rate: ${currency.exchangeRate} for amount: $enteredAmountTobeConverted ***")
         viewModelScope.launch {
             getConvertedExchangeRatesUseCase.execute(
                 currency = currency,
@@ -101,73 +101,6 @@ internal class MainViewModel @Inject constructor(
             )
         }
         stateMutableLiveData.postValue(viewState)
-    }
-
-    fun processInputAmount(inputAmount: String): Boolean {
-        if(inputAmount.isNotEmpty()) {
-            val cleanedInputAmount = cleanInput(inputAmount)
-            return isInputAmountValid(cleanedInputAmount)
-        }
-        return false
-    }
-
-    /**
-     * If input has a leading decimal separator it prefixes it with a zero.
-     * If input has a leading 0 it removes it.
-     * Examples:   "." -> "0."
-     *            "00" -> "0"
-     *            "07" -> "0"
-     */
-    private fun cleanInput(input: String): String {
-        var cleanInput = input.replace(",", ".")
-        when {
-            "." == cleanInput -> cleanInput = "0."
-            Regex("0[^.]").matches(cleanInput) -> cleanInput =
-                input[Utils.Order.SECOND.position].toString()
-        }
-        return cleanInput
-    }
-
-    private fun isInputAmountValid(input: String): Boolean {
-        return (validateLength(input) &&
-                validateDecimalPlaces(input) &&
-                validateDecimalSeparator(input))
-    }
-
-    /**
-     * Assures the whole part of the input is not above 20 digits long.
-     */
-    private fun validateLength(input: String): Boolean {
-        val maxDigitsAllowed = 20
-        if (!input.contains(".") && input.length > maxDigitsAllowed) {
-            return false
-        }
-        return true
-    }
-
-    /**
-     * Assures the decimal part of the input is at most 4 digits.
-     */
-    private fun validateDecimalPlaces(input: String): Boolean {
-        val maxDecimalPlacesAllowed = 4
-        if (input.contains(".") &&
-            input.substring(input.indexOf(".") + 1).length > maxDecimalPlacesAllowed
-        ) {
-            return false
-        }
-        return true
-    }
-
-    /**
-     * Assures the input contains at most 1 decimal separator.
-     */
-    private fun validateDecimalSeparator(input: String): Boolean {
-        val decimalSeparatorCount = input.asSequence()
-            .count { it == '.' }
-        if (decimalSeparatorCount > 1) {
-            return false
-        }
-        return true
     }
 
     internal data class ViewState(

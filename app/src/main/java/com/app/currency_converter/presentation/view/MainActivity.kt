@@ -18,6 +18,7 @@ import com.app.currency_converter.presentation.adapter.ConvertedCurrencyListAdap
 import com.app.currency_converter.presentation.adapter.CurrencyListAdapter
 import com.app.currency_converter.util.Utils.hideKeyboard
 import com.app.currency_converter.presentation.viewmodel.MainViewModel
+import com.app.currency_converter.util.InputValidator
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.ActivityScoped
@@ -113,7 +114,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initCurrencyConversion(){
-        if (viewModel.processInputAmount(binding.enterAmountEditText.text.toString())) {
+        if (InputValidator.processInputAmount(binding.enterAmountEditText.text.toString())) {
             viewModel.convertEnteredCurrencyToSupportedCurrencies(
                 currency = binding.currencySpinner.selectedItem as Currency,
                 enteredAmountTobeConverted = binding.enterAmountEditText.text.toString()
