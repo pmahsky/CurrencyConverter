@@ -33,7 +33,7 @@ class ExchangeRepositoryImplTest {
     }
 
     @Test
-    fun `getExchangeRates fetches ExchangeRates data is empty returns success`() {
+    fun `getExchangeRates fetches ExchangeRates is_data_empty should_refresh_data not returns success`() {
         //given
         every { appPreference.isDataEmpty } returns true
         every { appPreference.shouldRefreshData } returns false
@@ -49,7 +49,7 @@ class ExchangeRepositoryImplTest {
     }
 
     @Test
-    fun `getExchangeRates `() {
+    fun `getExchangeRates fetches is_data_empty should_refresh_data not returns null`() {
         //given
         every { appPreference.isDataEmpty } returns true
         every { appPreference.shouldRefreshData } returns false
@@ -65,7 +65,7 @@ class ExchangeRepositoryImplTest {
     }
 
     @Test
-    fun `getExchangeRates fetches ExchangeRates data should refresh data returns success`() {
+    fun `getExchangeRates fetches ExchangeRates is_data_empty not should_refresh_data returns success`() {
         //given
         every { appPreference.isDataEmpty } returns false
         every { appPreference.shouldRefreshData } returns true
@@ -85,7 +85,7 @@ class ExchangeRepositoryImplTest {
     }
 
     @Test
-    fun `getExchangeRates fetches ExchangeRates is data_empty not should_refresh_data not returns success`() {
+    fun `getExchangeRates fetches ExchangeRates is_data_empty not should_refresh_data not returns success`() {
         //given
         every { appPreference.isDataEmpty } returns false
         every { appPreference.shouldRefreshData } returns false
@@ -102,7 +102,7 @@ class ExchangeRepositoryImplTest {
     }
 
     @Test
-    fun `getExchangeRates fetches ExchangeRates is_data_empty returns error`() {
+    fun `getExchangeRates fetches ExchangeRates is_data_empty should_refresh_data not returns error`() {
         //given
         every { appPreference.isDataEmpty } returns true
         every { appPreference.shouldRefreshData } returns false
@@ -123,7 +123,7 @@ class ExchangeRepositoryImplTest {
     }
 
     @Test
-    fun `getExchangeRates fetches ExchangeRates should_refresh_data returns error`() {
+    fun `getExchangeRates fetches ExchangeRates is_data_empty not should_refresh_data returns error`() {
         //given
         every { appPreference.isDataEmpty } returns false
         every { appPreference.shouldRefreshData } returns true
