@@ -1,15 +1,13 @@
 package com.app.currency_converter.domain.di
 
-import android.content.Context
 import com.app.currency_converter.data.AppPreference
 import com.app.currency_converter.data.database.CurrencyDao
 import com.app.currency_converter.data.network.service.ApiService
 import com.app.currency_converter.domain.repository.ExchangeRateRepository
-import com.app.currency_converter.domain.repositoryImpl.ExchangeRateRepositoryImpl
+import com.app.currency_converter.data.repositoryImpl.ExchangeRateRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 

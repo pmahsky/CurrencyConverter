@@ -10,5 +10,5 @@ internal interface ApiService {
     @GET("/latest.json")
     suspend fun getLatestExchangeRates(
         @Query("app_id") appId: String
-    ): ExchangeRate
+    ): ExchangeRate?
 }
