@@ -42,8 +42,6 @@ internal class GetConvertedExchangeRatesUseCase @Inject constructor(
                 fromRate,
                 toRate
             )
-            it.conversion.conversionValue = conversionValue
-
             convertedCurrencyList.add(
                 Currency(
                     it.currencyCode,
