@@ -1,6 +1,5 @@
-package com.app.currency_converter.ui.adapter
+package com.app.currency_converter.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil

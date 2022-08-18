@@ -1,4 +1,4 @@
-package com.app.currency_converter.di
+package com.app.currency_converter.data.di
 
 import com.app.currency_converter.BuildConfig
 import com.app.currency_converter.data.network.service.ApiService

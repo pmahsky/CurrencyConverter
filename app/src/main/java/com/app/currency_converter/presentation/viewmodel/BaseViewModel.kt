@@ -1,4 +1,4 @@
-package com.app.currency_converter.viewmodel
+package com.app.currency_converter.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

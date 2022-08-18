@@ -6,7 +6,7 @@ import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 
-internal class GetExchangeRatesUsecase @Inject constructor(
+internal class FetchExchangeRatesUseCase @Inject constructor(
     private val exchangeRateRepository: ExchangeRateRepository
 ) {
     suspend fun execute(): Result {

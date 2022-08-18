@@ -1,4 +1,4 @@
-package com.app.currency_converter.di
+package com.app.currency_converter.domain.di
 
 import android.content.Context
 import com.app.currency_converter.data.AppPreference

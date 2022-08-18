@@ -1,4 +1,4 @@
-package com.app.currency_converter.ui.view
+package com.app.currency_converter.presentation.view
 
 import android.os.Bundle
 import android.text.Editable
@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.currency_converter.R
 import com.app.currency_converter.databinding.ActivityMainBinding
 import com.app.currency_converter.domain.model.Currency
-import com.app.currency_converter.ui.adapter.ConvertedCurrencyListAdapter
-import com.app.currency_converter.ui.adapter.CurrencyListAdapter
+import com.app.currency_converter.presentation.adapter.ConvertedCurrencyListAdapter
+import com.app.currency_converter.presentation.adapter.CurrencyListAdapter
 import com.app.currency_converter.util.Utils.hideKeyboard
-import com.app.currency_converter.viewmodel.MainViewModel
+import com.app.currency_converter.presentation.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.ActivityScoped
