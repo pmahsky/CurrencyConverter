@@ -4,8 +4,6 @@ import com.app.currency_converter.data.database.CurrencyDao
 import com.app.currency_converter.domain.model.Currency
 import com.app.currency_converter.util.CurrencyConversionUtility
 import com.app.currency_converter.util.Utils.roundToFourDecimalPlaces
-import timber.log.Timber
-import java.io.IOException
 import java.math.BigDecimal
 import javax.inject.Inject
 
@@ -13,13 +11,14 @@ internal class GetConvertedExchangeRatesUseCase @Inject constructor(
     private val currencyDao: CurrencyDao
 ) {
     suspend fun execute(currency: Currency, enteredAmountTobeConverted: String): Result {
-        return try {
-            Timber.i("Calling getConvertedCurrencyList() ***")
-            Result.Success(getConvertedCurrencyList(currency, enteredAmountTobeConverted))
-        } catch (e: IOException) {
-            Timber.i("Returning Error Result ***")
-            Result.Error(e)
-        }
+//        return try {
+//            Timber.i("Calling getConvertedCurrencyList() ***")
+//            Result.Success(getConvertedCurrencyList(currency, enteredAmountTobeConverted))
+//        } catch (e: RuntimeException) {
+//            Timber.i("Returning Error Result ***")
+//            Result.Error(e)
+//        }
+        return Result.Success(getConvertedCurrencyList(currency, enteredAmountTobeConverted))
     }
 
     sealed interface Result {
@@ -50,6 +49,5 @@ internal class GetConvertedExchangeRatesUseCase @Inject constructor(
             )
         }
         return convertedCurrencyList
-
     }
 }
