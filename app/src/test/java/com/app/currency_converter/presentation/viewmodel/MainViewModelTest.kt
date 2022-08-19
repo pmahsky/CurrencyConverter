@@ -7,6 +7,7 @@ import com.app.currency_converter.data.database.CurrencyDao
 import com.app.currency_converter.data.network.model.toDomainModelList
 import com.app.currency_converter.data.network.service.ApiService
 import com.app.currency_converter.data.repositoryImpl.ExchangeRateRepositoryImpl
+import com.app.currency_converter.domain.model.Currency
 import com.app.currency_converter.domain.usecase.FetchExchangeRatesUseCase
 import com.app.currency_converter.domain.usecase.GetConvertedExchangeRatesUseCase
 import com.google.common.truth.Truth.assertThat
@@ -15,6 +16,7 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -122,6 +124,30 @@ class MainViewModelTest {
             currencyList = DataModels.getExchangeRateModel().toDomainModelList()
         ))
     }
+
+    //TODO there is an unidentified issue happening with this UT. Will work on it later for my own.
+    /*@Test
+    fun `convert entered currency to supported currencies returns success`() {
+
+        coEvery{ currencyDao.getAllCurrencies()} returns listOf(DataModels.getCurrencyEntity())
+        //given
+        coEvery {
+            getConvertedExchangeRatesUseCase.execute(Currency("USD", 1.0), "10")
+        } returns GetConvertedExchangeRatesUseCase.Result.Success(
+            DataModels.getExchangeRateModel().toDomainModelList()
+        )
+
+        // when
+        runTest {
+            viewModel.convertEnteredCurrencyToSupportedCurrencies(Currency("USD", 1.0), "10")
+        }
+
+        assertThat(viewModel.stateMutableLiveData.value).isEqualTo(MainViewModel.ViewState(
+            isLoading = false,
+            isError = false,
+            currencyList = DataModels.getExchangeRateModel().toDomainModelList()
+        ))
+    }*/
 
     @AfterEach
     fun tearDown(){
