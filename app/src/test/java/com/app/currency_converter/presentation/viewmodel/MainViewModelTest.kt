@@ -1,13 +1,11 @@
 package com.app.currency_converter.presentation.viewmodel
 
-import com.app.currency_converter.BuildConfig
 import com.app.currency_converter.data.AppPreference
 import com.app.currency_converter.data.DataModels
 import com.app.currency_converter.data.database.CurrencyDao
 import com.app.currency_converter.data.network.model.toDomainModelList
 import com.app.currency_converter.data.network.service.ApiService
 import com.app.currency_converter.data.repositoryImpl.ExchangeRateRepositoryImpl
-import com.app.currency_converter.domain.model.Currency
 import com.app.currency_converter.domain.usecase.FetchExchangeRatesUseCase
 import com.app.currency_converter.domain.usecase.GetConvertedExchangeRatesUseCase
 import com.google.common.truth.Truth.assertThat
@@ -16,7 +14,6 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest

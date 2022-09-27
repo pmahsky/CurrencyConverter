@@ -1,7 +1,7 @@
 package com.app.currency_converter.domain.usecase
 
 import com.app.currency_converter.data.database.CurrencyDao
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.app.currency_converter.util.CurrencyConversionUtility
 import com.app.currency_converter.util.Utils.roundToFourDecimalPlaces
 import java.math.BigDecimal

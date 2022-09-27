@@ -13,7 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.currency_converter.R
 import com.app.currency_converter.databinding.ActivityMainBinding
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.app.currency_converter.presentation.adapter.ConvertedCurrencyListAdapter
 import com.app.currency_converter.presentation.adapter.CurrencyListAdapter
 import com.app.currency_converter.util.Utils.hideKeyboard

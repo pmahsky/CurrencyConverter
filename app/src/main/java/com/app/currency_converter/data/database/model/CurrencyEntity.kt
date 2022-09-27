@@ -3,7 +3,7 @@ package com.app.currency_converter.data.database.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 
 @Entity(tableName = "currency_table")
 data class CurrencyEntity(

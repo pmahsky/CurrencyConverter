@@ -38,7 +38,7 @@
 
         <variable
             name="currency"
-            type="com.app.currency_converter.domain.model.Currency" />
+            type="com.app.currency_converter.domain.domain_model.Currency" />
 
     </data>
 </layout>

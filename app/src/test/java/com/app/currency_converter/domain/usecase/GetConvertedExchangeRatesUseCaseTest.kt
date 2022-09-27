@@ -2,7 +2,7 @@ package com.app.currency_converter.domain.usecase
 
 import com.app.currency_converter.data.DataModels
 import com.app.currency_converter.data.network.model.toDomainModelList
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.mockk

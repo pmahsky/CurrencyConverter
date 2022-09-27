@@ -1,6 +1,6 @@
 package com.app.currency_converter.domain.usecase
 
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.app.currency_converter.domain.repository.ExchangeRateRepository
 import timber.log.Timber
 import java.io.IOException

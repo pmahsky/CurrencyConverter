@@ -8,7 +8,7 @@ import com.app.currency_converter.data.database.model.toDomainModel
 import com.app.currency_converter.data.network.model.toDomainModelList
 import com.app.currency_converter.data.network.model.toEntityList
 import com.app.currency_converter.data.network.service.ApiService
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.app.currency_converter.domain.repository.ExchangeRateRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

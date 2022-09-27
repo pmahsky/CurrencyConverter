@@ -1,7 +1,7 @@
 package com.app.currency_converter.data.network.model
 
 import com.app.currency_converter.data.database.model.CurrencyEntity
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.google.gson.annotations.SerializedName
 
 internal data class ExchangeRate(

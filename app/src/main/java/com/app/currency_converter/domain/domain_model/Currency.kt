@@ -1,4 +1,4 @@
-package com.app.currency_converter.domain.model
+package com.app.currency_converter.domain.domain_model
 
 internal data class Currency(
     val currencyCode: String,

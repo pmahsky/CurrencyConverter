@@ -1,7 +1,7 @@
 package com.app.currency_converter.domain.repository
 
 import com.app.currency_converter.data.database.model.CurrencyEntity
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 
 internal interface ExchangeRateRepository {
     val timestampInSeconds: Long

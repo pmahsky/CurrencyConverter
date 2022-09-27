@@ -1,7 +1,7 @@
 package com.app.currency_converter.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import com.app.currency_converter.domain.usecase.FetchExchangeRatesUseCase
 import com.app.currency_converter.domain.usecase.GetConvertedExchangeRatesUseCase
 import com.app.currency_converter.util.Utils

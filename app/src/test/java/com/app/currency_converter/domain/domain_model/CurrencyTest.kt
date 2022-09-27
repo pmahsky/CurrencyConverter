@@ -1,4 +1,4 @@
-package com.app.currency_converter.domain.model
+package com.app.currency_converter.domain.domain_model
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test

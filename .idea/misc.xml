@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/fragment_currency_conversion.xml" value="0.31567028985507245" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.31567028985507245" />
         <entry key="app/src/main/res/layout/item_converted_currency_list.xml" value="0.31567028985507245" />
+        <entry key="app/src/main/res/layout/list_item_converted_currency.xml" value="0.19300911854103345" />
       </map>
     </option>
   </component>

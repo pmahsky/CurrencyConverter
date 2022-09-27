@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.app.currency_converter.R
 import com.app.currency_converter.databinding.ListItemConvertedCurrencyBinding
-import com.app.currency_converter.domain.model.Currency
+import com.app.currency_converter.domain.domain_model.Currency
 import java.util.ArrayList
 
 internal class ConvertedCurrencyListAdapter() :

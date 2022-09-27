@@ -114,7 +114,7 @@ dependencies {
     // Helper for other arch dependencies, including JUnit test rules that can be used with LiveData.
     testImplementation "androidx.arch.core:core-testing:$androidx_core_testing_version"
 
-    // Its the API for writing testes using JUnit version 5. It provides extension models for developing tests and extensions
+    // Its the API for writing tests using JUnit version 5. It provides extension models for developing tests and extensions
     testImplementation "org.junit.jupiter:junit-jupiter:$junit5_version"
 
     // Truth is a fluent and flexible open-source testing framework designed to make test assertions and failure messages more readable
